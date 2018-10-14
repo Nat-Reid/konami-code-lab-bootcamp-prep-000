@@ -11,20 +11,19 @@ const codes = [
   "a"
 ];
 
-var number = 0;
+var codeIndex = 0;
 
 function init() {
-  function konamiCode(e){
-    if (e.which === codes[number]){
-      number += 1;
-      return true;
+  document.body.addEventListener('keydown', function(e){
+    console.log(e.key);
+    if (e.key === codes[codeIndex]){
+      codeIndex++;
+      console.log(codeIndex);
     }else{
-      number = 0;
-      return false;
+      codeIndex = 0;
+      console.log(codeIndex);
     }
-  }
-  document.body.addEvenetListener('keydown', function(e){
-    if (konamiCode(e) && number === codes.length){
+    if (codeIndex === codes.length){
       alert('Code activated!');
     }
   })
